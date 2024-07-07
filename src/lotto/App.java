@@ -63,13 +63,13 @@ public class App {
                 ==================================
                 자동 발권 번호 > """);
 
-        Random random = new Random();
+
         int[] arr = new int[6];
         int i, j;
 
         for (i = 0; i < 6; i++) {
             while (true) {
-                int randomNum = random.nextInt(45) + 1;
+                int randomNum = getRandomNum();
                 for (j = 0; j < 6; j++) {
                     if (arr[j] == randomNum) break;
                 }
@@ -82,6 +82,11 @@ public class App {
 
         orderingLotto(arr);
         printLotto(arr, " ");
+    }
+
+    private static int getRandomNum() {
+        Random random = new Random();
+        return random.nextInt(45) + 1;
     }
 
     private static void printLotto(int[] arr, String dex) {
