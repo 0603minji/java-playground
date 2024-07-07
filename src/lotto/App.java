@@ -48,10 +48,7 @@ public class App {
             String inputNum = sc.nextLine();
             String[] inputNums = inputNum.split(" ");
 
-            for (int i = 0; i < 6; i++) {
-                if (i == 5) System.out.printf("%s", inputNums[i]);
-                else System.out.printf("%s ", inputNums[i]);
-            }
+            printLotto(inputNums, " ");
 
             System.out.print("\n위의 번호가 맞나요? (Y/N)");
             String yesNo = sc.nextLine();
@@ -83,18 +80,23 @@ public class App {
             }
         }
 
-        oderingLotto(arr);
-        printLotto(arr);
-
+        orderingLotto(arr);
+        printLotto(arr, " ");
     }
 
-    private static void printLotto(int[] arr) {
+    private static void printLotto(int[] arr, String dex) {
         for (int i1 : arr) {
-            System.out.print(i1 + " ");
+            System.out.print(i1 + dex);
         }
     }
 
-    private static void oderingLotto(int[] arr) {
+    private static void printLotto(String[] arr, String dex) {
+        for (String i1 : arr) {
+            System.out.print(i1 + dex);
+        }
+    }
+
+    private static void orderingLotto(int[] arr) {
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 5 - i; j++) {
                 if (arr[j] > arr[j + 1]) {
